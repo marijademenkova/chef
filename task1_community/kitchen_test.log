@@ -1,0 +1,172 @@
+-----> Starting Kitchen (v1.17.0)
+-----> Cleaning up any prior instances of <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Destroying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       ==> default: VM not created. Moving on...
+       Vagrant instance <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m1.29s).
+-----> Testing <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Creating <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Bringing machine 'default' up with 'virtualbox' provider...
+       ==> default: Importing base box '/home/student/cm/ansible/day-1/sbeliakou-centos-7.3-x86_64-minimal.box'...
+       [KProgress: 10%[KProgress: 30%[KProgress: 50%[KProgress: 70%[KProgress: 80%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+       ==> default: Setting the name of the VM: kitchen-task1_community-default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox_default_1503406532792_72683
+       ==> default: Clearing any previously set network interfaces...
+       ==> default: Preparing network interfaces based on configuration...
+           default: Adapter 1: nat
+           default: Adapter 2: hostonly
+       ==> default: Forwarding ports...
+           default: 22 (guest) => 2222 (host) (adapter 1)
+       ==> default: Booting VM...
+       ==> default: Waiting for machine to boot. This may take a few minutes...
+           default: SSH address: 127.0.0.1:2222
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+           default: 
+           default: Vagrant insecure key detected. Vagrant will automatically replace
+           default: this with a newly generated keypair for better security.
+           default: 
+           default: Inserting generated public key within guest...
+           default: Removing insecure key from the guest if it's present...
+           default: Key inserted! Disconnecting and reconnecting using new SSH key...
+       ==> default: Machine booted and ready!
+       ==> default: Checking for guest additions in VM...
+       ==> default: Setting hostname...
+       ==> default: Configuring and enabling network interfaces...
+           default: SSH address: 127.0.0.1:2222
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+       ==> default: Mounting shared folders...
+           default: /tmp/chef-pkgs => /home/student/chef_repo/cookbooks/task1_community/chef-pkgs
+       ==> default: Machine not provisioned because `--no-provision` is specified.
+       [SSH] Established
+       Vagrant instance <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> created.
+       Finished creating <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m59.56s).
+-----> Converging <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Preparing files for transfer
+       Preparing dna.json
+       Resolving cookbook dependencies with Berkshelf 6.3.0...
+       Removing non-cookbook files before transfer
+       Preparing validation.pem
+       Preparing client.rb
+-----> Installing Chef Omnibus (install only if missing)
+       Downloading file:///tmp/chef-pkgs/install.sh to file /tmp/install.sh
+       Trying wget...
+       Trying curl...
+       Download complete.
+       warning: /tmp/chef-pkgs/chef-13.3.42-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+       Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+       Updating / installing...
+          1:chef-13.3.42-1.el7                                                 (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 52%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+       Thank you for installing Chef!
+       Transferring files to <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+       Starting Chef Client, version 13.3.42
+       Creating a new client identity for default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox using the validator key.
+       resolving cookbooks for run list: ["java::default"]
+       Synchronizing Cookbooks:
+         - java (1.50.0)
+         - ohai (5.2.0)
+         - windows (3.1.2)
+         - apt (6.1.3)
+         - homebrew (4.2.0)
+       Installing Cookbook Gems:
+       Compiling Cookbooks...
+       Converging 6 resources
+       Recipe: java::notify
+         * log[jdk-version-changed] action nothing (skipped due to action :nothing)
+       Recipe: java::openjdk
+         * yum_package[java-1.6.0-openjdk] action install
+           - install version 1.6.0.41-1.13.13.1.el7_3 of package java-1.6.0-openjdk
+       Recipe: java::notify
+         * log[jdk-version-changed] action write
+         
+       Recipe: java::openjdk
+         * yum_package[java-1.6.0-openjdk-devel] action install
+           - install version 1.6.0.41-1.13.13.1.el7_3 of package java-1.6.0-openjdk-devel
+       Recipe: java::notify
+         * log[jdk-version-changed] action write
+         
+       Recipe: java::openjdk
+         * java_alternatives[set-java-alternatives] action set
+           - Add alternative for appletviewer
+           - Add alternative for apt
+           - Add alternative for extcheck
+           - Add alternative for idlj
+           - Add alternative for jar
+           - Add alternative for jarsigner
+           - Add alternative for java
+           - Add alternative for javac
+           - Add alternative for javadoc
+           - Add alternative for javah
+           - Add alternative for javap
+           - Add alternative for jconsole
+           - Add alternative for jdb
+           - Add alternative for jhat
+           - Add alternative for jinfo
+           - Add alternative for jmap
+           - Add alternative for jps
+           - Add alternative for jrunscript
+           - Add alternative for jsadebugd
+           - Add alternative for jstack
+           - Add alternative for jstat
+           - Add alternative for jstatd
+           - Add alternative for keytool
+           - Add alternative for native2ascii
+           - Add alternative for orbd
+           - Add alternative for pack200
+           - Add alternative for policytool
+           - Add alternative for rmic
+           - Add alternative for rmid
+           - Add alternative for rmiregistry
+           - Add alternative for schemagen
+           - Add alternative for serialver
+           - Add alternative for servertool
+           - Add alternative for tnameserv
+           - Add alternative for unpack200
+           - Add alternative for wsgen
+           - Add alternative for wsimport
+           - Add alternative for xjc
+       Recipe: java::set_java_home
+         * directory[/etc/profile.d] action create (up to date)
+         * template[/etc/profile.d/jdk.sh] action create
+           - create new file /etc/profile.d/jdk.sh
+           - update content in file /etc/profile.d/jdk.sh from none to 778ff5
+           --- /etc/profile.d/jdk.sh	2017-08-22 13:59:07.542170216 +0100
+           +++ /etc/profile.d/.chef-jdk20170822-12030-nc2dr5.sh	2017-08-22 13:59:07.540163319 +0100
+           @@ -1 +1,2 @@
+           +export JAVA_HOME=/usr/lib/jvm/java-1.6.0
+           - change mode from '' to '0755'
+       
+       Running handlers:
+       Running handlers complete
+       Chef Client finished, 6/8 resources updated in 02 minutes 22 seconds
+       Finished converging <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (2m52.17s).
+-----> Setting up <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Finished setting up <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
+-----> Verifying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Loaded tests from test/smoke/default 
+
+Profile: tests from test/smoke/default
+Version: (not specified)
+Target:  ssh://vagrant@127.0.0.1:2222
+
+
+  User root
+[38;5;247m     ↺  [0m
+  Port 80
+[38;5;247m     ↺  [0m
+  System Package
+[38;5;41m     ✔  java-1.6.0-openjdk should be installed[0m
+  System Package
+[38;5;41m     ✔  java-1.6.0-openjdk-devel should be installed[0m
+  Environment variable
+[38;5;41m     ✔  JAVA_HOME content should eq "/usr/lib/jvm/java-1.6.0"[0m
+
+Test Summary: [38;5;41m3 successful[0m, [38;5;9m0 failures[0m, [38;5;247m2 skipped[0m
+       Finished verifying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m2.79s).
+-----> Destroying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m3.48s).
+       Finished testing <default--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (3m59.30s).
+-----> Kitchen is finished. (4m0.63s)

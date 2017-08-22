@@ -1,0 +1,139 @@
+-----> Starting Kitchen (v1.17.0)
+-----> Cleaning up any prior instances of <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Destroying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m3.80s).
+-----> Testing <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Creating <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Bringing machine 'default' up with 'virtualbox' provider...
+       ==> default: Importing base box '/home/student/cm/ansible/day-1/sbeliakou-centos-7.3-x86_64-minimal.box'...
+       [KProgress: 10%[KProgress: 30%[KProgress: 50%[KProgress: 70%[KProgress: 80%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+       ==> default: Setting the name of the VM: kitchen-task1_apache-webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox_default_1503404485842_52280
+       ==> default: Clearing any previously set network interfaces...
+       ==> default: Preparing network interfaces based on configuration...
+           default: Adapter 1: nat
+           default: Adapter 2: hostonly
+       ==> default: Forwarding ports...
+           default: 80 (guest) => 8889 (host) (adapter 1)
+           default: 22 (guest) => 2222 (host) (adapter 1)
+       ==> default: Booting VM...
+       ==> default: Waiting for machine to boot. This may take a few minutes...
+           default: SSH address: 127.0.0.1:2222
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+           default: 
+           default: Vagrant insecure key detected. Vagrant will automatically replace
+           default: this with a newly generated keypair for better security.
+           default: 
+           default: Inserting generated public key within guest...
+           default: Removing insecure key from the guest if it's present...
+           default: Key inserted! Disconnecting and reconnecting using new SSH key...
+       ==> default: Machine booted and ready!
+       ==> default: Checking for guest additions in VM...
+       ==> default: Setting hostname...
+       ==> default: Configuring and enabling network interfaces...
+           default: SSH address: 127.0.0.1:2222
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+       ==> default: Mounting shared folders...
+           default: /tmp/chef-pkgs => /home/student/chef_repo/cookbooks/task1_apache/chef-pkgs
+       ==> default: Machine not provisioned because `--no-provision` is specified.
+       [SSH] Established
+       Vagrant instance <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> created.
+       Finished creating <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m53.10s).
+-----> Converging <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Preparing files for transfer
+       Preparing dna.json
+       Resolving cookbook dependencies with Berkshelf 6.3.0...
+       Removing non-cookbook files before transfer
+       Preparing validation.pem
+       Preparing client.rb
+-----> Installing Chef Omnibus (install only if missing)
+       Downloading file:///tmp/chef-pkgs/install.sh to file /tmp/install.sh
+       Trying wget...
+       Trying curl...
+       Download complete.
+       warning: /tmp/chef-pkgs/chef-13.3.42-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+       Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+       Updating / installing...
+          1:chef-13.3.42-1.el7                                                 (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 52%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+       Thank you for installing Chef!
+       Transferring files to <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+       Starting Chef Client, version 13.3.42
+       Creating a new client identity for webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox using the validator key.
+       resolving cookbooks for run list: ["task1_apache::webserver"]
+       Synchronizing Cookbooks:
+         - task1_apache (0.1.0)
+       Installing Cookbook Gems:
+       Compiling Cookbooks...
+       Converging 6 resources
+       Recipe: task1_apache::webserver
+         * yum_package[php] action install
+           - install version 5.4.16-42.el7 of package php
+         * yum_package[php-fpm] action install
+           - install version 5.4.16-42.el7 of package php-fpm
+         * file[/var/www/html/info.php] action create
+           - create new file /var/www/html/info.php
+           - update content in file /var/www/html/info.php from none to 9b29ac
+           --- /var/www/html/info.php	2017-08-22 13:24:40.830202915 +0100
+           +++ /var/www/html/.chef-info20170822-12021-he28s5.php	2017-08-22 13:24:40.830202915 +0100
+           @@ -1 +1,6 @@
+           +<html>
+           +  <body>
+           +    <?php phpinfo(); ?>
+           +  </body>
+           +</html>
+         * yum_package[httpd] action install (up to date)
+         * service[httpd] action enable
+           - enable service service[httpd]
+         * service[httpd] action start
+           - start service service[httpd]
+         * file[/var/www/html/index.html] action create
+           - create new file /var/www/html/index.html
+           - update content in file /var/www/html/index.html from none to 2914aa
+           --- /var/www/html/index.html	2017-08-22 13:24:41.377518696 +0100
+           +++ /var/www/html/.chef-index20170822-12021-1nouo26.html	2017-08-22 13:24:41.377518696 +0100
+           @@ -1 +1,6 @@
+           +<html>
+           +  <body>
+           +    <h1>hello world</h1>
+           +  </body>
+           +</html>
+       
+       Running handlers:
+       Running handlers complete
+       Chef Client finished, 6/7 resources updated in 02 minutes 16 seconds
+       Finished converging <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (2m38.18s).
+-----> Setting up <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Finished setting up <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
+-----> Verifying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Loaded tests from test/smoke/default 
+
+Profile: tests from test/smoke/default
+Version: (not specified)
+Target:  ssh://vagrant@127.0.0.1:2222
+
+
+  System Package
+[38;5;41m     ✔  php should be installed[0m
+  System Package
+[38;5;41m     ✔  httpd should be installed[0m
+  Service httpd
+[38;5;41m     ✔  should be enabled[0m
+[38;5;41m     ✔  should be running[0m
+  User root
+[38;5;247m     ↺  [0m
+  Port 80
+[38;5;247m     ↺  [0m
+
+Test Summary: [38;5;41m4 successful[0m, [38;5;9m0 failures[0m, [38;5;247m2 skipped[0m
+       Finished verifying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m2.89s).
+-----> Destroying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m4.30s).
+       Finished testing <webserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (3m42.42s).
+-----> Kitchen is finished. (3m43.68s)

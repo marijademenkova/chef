@@ -1,0 +1,159 @@
+-----> Starting Kitchen (v1.17.0)
+-----> Cleaning up any prior instances of <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
+-----> Testing <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+-----> Creating <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Bringing machine 'default' up with 'virtualbox' provider...
+       ==> default: Importing base box '/home/student/cm/ansible/day-1/sbeliakou-centos-7.3-x86_64-minimal.box'...
+       [KProgress: 10%[KProgress: 20%[KProgress: 30%[KProgress: 50%[KProgress: 70%[KProgress: 80%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+       ==> default: Setting the name of the VM: kitchen-task1_jboss-appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox_default_1503404666310_55038
+       ==> default: Fixed port collision for 22 => 2222. Now on port 2200.
+       ==> default: Clearing any previously set network interfaces...
+       ==> default: Preparing network interfaces based on configuration...
+           default: Adapter 1: nat
+           default: Adapter 2: hostonly
+       ==> default: Forwarding ports...
+           default: 8080 (guest) => 8888 (host) (adapter 1)
+           default: 22 (guest) => 2200 (host) (adapter 1)
+       ==> default: Booting VM...
+       ==> default: Waiting for machine to boot. This may take a few minutes...
+           default: SSH address: 127.0.0.1:2200
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+           default: Warning: Connection reset. Retrying...
+           default: Warning: Remote connection disconnect. Retrying...
+           default: Warning: Connection reset. Retrying...
+           default: Warning: Remote connection disconnect. Retrying...
+           default: Warning: Connection reset. Retrying...
+           default: Warning: Remote connection disconnect. Retrying...
+           default: Warning: Connection reset. Retrying...
+           default: 
+           default: Vagrant insecure key detected. Vagrant will automatically replace
+           default: this with a newly generated keypair for better security.
+           default: 
+           default: Inserting generated public key within guest...
+           default: Removing insecure key from the guest if it's present...
+           default: Key inserted! Disconnecting and reconnecting using new SSH key...
+       ==> default: Machine booted and ready!
+       ==> default: Checking for guest additions in VM...
+       ==> default: Setting hostname...
+       ==> default: Configuring and enabling network interfaces...
+           default: SSH address: 127.0.0.1:2200
+           default: SSH username: vagrant
+           default: SSH auth method: private key
+       ==> default: Mounting shared folders...
+           default: /tmp/chef-pkgs => /home/student/chef_repo/cookbooks/task1_jboss/chef-pkgs
+       ==> default: Machine not provisioned because `--no-provision` is specified.
+       [SSH] Established
+       Vagrant instance <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> created.
+       Finished creating <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m58.74s).
+-----> Converging <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Preparing files for transfer
+       Preparing dna.json
+       Resolving cookbook dependencies with Berkshelf 6.3.0...
+       Removing non-cookbook files before transfer
+       Preparing validation.pem
+       Preparing client.rb
+-----> Installing Chef Omnibus (install only if missing)
+       Downloading file:///tmp/chef-pkgs/install.sh to file /tmp/install.sh
+       Trying wget...
+       Trying curl...
+       Download complete.
+       warning: /tmp/chef-pkgs/chef-13.3.42-1.el7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+       Preparing...                                                            (100%)#                                 (100%)##                                (100%)###                               (100%)####                              (100%)#####                             (100%)######                            (100%)#######                           (100%)########                          (100%)#########                         (100%)##########                        (100%)###########                       (100%)############                      (100%)#############                     (100%)##############                    (100%)###############                   (100%)################                  (100%)#################                 (100%)##################                (100%)###################               (100%)####################              (100%)#####################             (100%)######################            (100%)#######################           (100%)########################          (100%)#########################         (100%)##########################        (100%)###########################       (100%)############################      (100%)#############################     (100%)##############################    (100%)###############################   (100%)################################  (100%)################################# (100%)################################# [100%]
+       Updating / installing...
+          1:chef-13.3.42-1.el7                                                 (  1%)#                                 (  4%)##                                (  7%)###                               ( 10%)####                              ( 13%)#####                             ( 16%)######                            ( 19%)#######                           ( 22%)########                          ( 25%)#########                         ( 28%)##########                        ( 31%)###########                       ( 34%)############                      ( 37%)#############                     ( 40%)##############                    ( 43%)###############                   ( 46%)################                  ( 49%)#################                 ( 52%)##################                ( 54%)###################               ( 57%)####################              ( 60%)#####################             ( 63%)######################            ( 66%)#######################           ( 69%)########################          ( 72%)#########################         ( 75%)##########################        ( 78%)###########################       ( 81%)############################      ( 84%)#############################     ( 87%)##############################    ( 90%)###############################   ( 93%)################################  ( 96%)################################# ( 99%)################################# [100%]
+       Thank you for installing Chef!
+       Transferring files to <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
+       Starting Chef Client, version 13.3.42
+       Creating a new client identity for appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox using the validator key.
+       resolving cookbooks for run list: ["task1_jboss::appserver"]
+       Synchronizing Cookbooks:
+         - task1_jboss (0.1.0)
+       Installing Cookbook Gems:
+       Compiling Cookbooks...
+       Converging 8 resources
+       Recipe: task1_jboss::appserver
+         * yum_package[java-1.8.0-openjdk-devel] action install
+           - install version 1.8.0.141-1.b16.el7_3 of package java-1.8.0-openjdk-devel
+         * linux_user[jboss] action create
+           - create user jboss
+         * remote_file[/tmp/wildfly-10.1.0.Final.tar.gz] action create
+           - create new file /tmp/wildfly-10.1.0.Final.tar.gz
+           - update content in file /tmp/wildfly-10.1.0.Final.tar.gz from none to 807816
+           (file sizes exceed 10000000 bytes, diff output suppressed)
+           - change mode from '' to '0755'
+           - change owner from '' to 'jboss'
+         * bash[unpack] action run
+           - execute "bash"  "/tmp/chef-script20170822-12022-14kuu6v"
+         * directory[/opt/wildfly-10.1.0.Final.tar.gz] action create
+           - create new directory /opt/wildfly-10.1.0.Final.tar.gz
+           - change mode from '' to '0755'
+           - change owner from '' to 'jboss'
+         * template[/etc/systemd/system/jboss.service] action create
+           - create new file /etc/systemd/system/jboss.service
+           - update content in file /etc/systemd/system/jboss.service from none to a53f1c
+           --- /etc/systemd/system/jboss.service	2017-08-22 13:57:50.872542102 +0100
+           +++ /etc/systemd/system/.chef-jboss20170822-12022-e0c6x5.service	2017-08-22 13:57:50.872542102 +0100
+           @@ -1 +1,9 @@
+           +[Unit]
+           +Description=Wildfly
+           +After=network.target
+           +[Service]
+           +Type=simple
+           +ExecStart=/opt/wildfly-10.1.0.Final/bin/standalone.sh -b 0.0.0.0
+           +[Install]
+           +WantedBy=multi-user.target
+           - change mode from '' to '0777'
+           - change owner from '' to 'jboss'
+         * template[/opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war] action create(erubis):3: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):9: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):10: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):11: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):19: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):20: warning: encountered \r in middle of line, treated as a mere space
+       (erubis):21: warning: encountered \r in middle of line, treated as a mere space
+       
+           - create new file /opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war
+           - update content in file /opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war from none to c80cd5
+           (new content is binary, diff output suppressed)
+           - change mode from '' to '0755'
+           - change owner from '' to 'jboss'
+         * service[jboss] action enable
+           - enable service service[jboss]
+         * service[jboss] action start
+           - start service service[jboss]
+       
+       Running handlers:
+       Running handlers complete
+       Chef Client finished, 9/9 resources updated in 32 minutes 14 seconds
+       Finished converging <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (32m43.40s).
+-----> Setting up <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Finished setting up <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
+-----> Verifying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       Loaded tests from test/smoke/default 
+
+Profile: tests from test/smoke/default
+Version: (not specified)
+Target:  ssh://vagrant@127.0.0.1:2200
+
+
+  System Package
+[38;5;41m     ✔  java-1.8.0-openjdk-devel should be installed[0m
+  Service jboss
+[38;5;41m     ✔  should be enabled[0m
+[38;5;41m     ✔  should be installed[0m
+[38;5;41m     ✔  should be running[0m
+  User jboss
+[38;5;41m     ✔  should exist[0m
+
+Test Summary: [38;5;41m5 successful[0m, [38;5;9m0 failures[0m, [38;5;247m0 skipped[0m
+       Finished verifying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m5.28s).
+-----> Destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m5.37s).
+       Finished testing <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (33m52.84s).
+-----> Kitchen is finished. (33m54.08s)
