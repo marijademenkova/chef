@@ -1,33 +1,28 @@
 -----> Starting Kitchen (v1.17.0)
 -----> Cleaning up any prior instances of <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
 -----> Destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
-       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
+       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m3.52s).
 -----> Testing <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
 -----> Creating <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
        Bringing machine 'default' up with 'virtualbox' provider...
        ==> default: Importing base box '/home/student/cm/ansible/day-1/sbeliakou-centos-7.3-x86_64-minimal.box'...
-       [KProgress: 10%[KProgress: 20%[KProgress: 30%[KProgress: 50%[KProgress: 70%[KProgress: 80%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
-       ==> default: Setting the name of the VM: kitchen-task1_jboss-appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox_default_1503404666310_55038
-       ==> default: Fixed port collision for 22 => 2222. Now on port 2200.
+       [KProgress: 10%[KProgress: 30%[KProgress: 50%[KProgress: 70%[KProgress: 80%[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+       ==> default: Setting the name of the VM: kitchen-task1_jboss-appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox_default_1503419561300_39938
        ==> default: Clearing any previously set network interfaces...
        ==> default: Preparing network interfaces based on configuration...
            default: Adapter 1: nat
            default: Adapter 2: hostonly
        ==> default: Forwarding ports...
            default: 8080 (guest) => 8888 (host) (adapter 1)
-           default: 22 (guest) => 2200 (host) (adapter 1)
+           default: 22 (guest) => 2222 (host) (adapter 1)
        ==> default: Booting VM...
        ==> default: Waiting for machine to boot. This may take a few minutes...
-           default: SSH address: 127.0.0.1:2200
+           default: SSH address: 127.0.0.1:2222
            default: SSH username: vagrant
            default: SSH auth method: private key
-           default: Warning: Connection reset. Retrying...
-           default: Warning: Remote connection disconnect. Retrying...
-           default: Warning: Connection reset. Retrying...
-           default: Warning: Remote connection disconnect. Retrying...
-           default: Warning: Connection reset. Retrying...
-           default: Warning: Remote connection disconnect. Retrying...
-           default: Warning: Connection reset. Retrying...
            default: 
            default: Vagrant insecure key detected. Vagrant will automatically replace
            default: this with a newly generated keypair for better security.
@@ -39,7 +34,7 @@
        ==> default: Checking for guest additions in VM...
        ==> default: Setting hostname...
        ==> default: Configuring and enabling network interfaces...
-           default: SSH address: 127.0.0.1:2200
+           default: SSH address: 127.0.0.1:2222
            default: SSH username: vagrant
            default: SSH auth method: private key
        ==> default: Mounting shared folders...
@@ -47,7 +42,7 @@
        ==> default: Machine not provisioned because `--no-provision` is specified.
        [SSH] Established
        Vagrant instance <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> created.
-       Finished creating <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m58.74s).
+       Finished creating <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m52.66s).
 -----> Converging <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
        Preparing files for transfer
        Preparing dna.json
@@ -68,15 +63,84 @@
        Transferring files to <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>
        Starting Chef Client, version 13.3.42
        Creating a new client identity for appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox using the validator key.
-       resolving cookbooks for run list: ["task1_jboss::appserver"]
+       resolving cookbooks for run list: ["java::default", "task1_jboss::appserver", "task1_jboss::deploy"]
        Synchronizing Cookbooks:
          - task1_jboss (0.1.0)
+         - apt (6.1.3)
+         - java (1.50.0)
+         - homebrew (4.2.0)
+         - ohai (5.2.0)
+         - windows (3.1.2)
        Installing Cookbook Gems:
        Compiling Cookbooks...
-       Converging 8 resources
-       Recipe: task1_jboss::appserver
+       Converging 19 resources
+       Recipe: java::notify
+         * log[jdk-version-changed] action nothing (skipped due to action :nothing)
+       Recipe: java::openjdk
+         * yum_package[java-1.8.0-openjdk] action install
+           - install version 1.8.0.141-1.b16.el7_3 of package java-1.8.0-openjdk
+       Recipe: java::notify
+         * log[jdk-version-changed] action write
+         
+       Recipe: java::openjdk
          * yum_package[java-1.8.0-openjdk-devel] action install
            - install version 1.8.0.141-1.b16.el7_3 of package java-1.8.0-openjdk-devel
+       Recipe: java::notify
+         * log[jdk-version-changed] action write
+         
+       Recipe: java::openjdk
+         * java_alternatives[set-java-alternatives] action set
+           - Add alternative for appletviewer
+           - Add alternative for extcheck
+           - Add alternative for idlj
+           - Add alternative for jar
+           - Add alternative for jarsigner
+           - Add alternative for java
+           - Add alternative for javac
+           - Add alternative for javadoc
+           - Add alternative for javah
+           - Add alternative for javap
+           - Add alternative for jcmd
+           - Add alternative for jconsole
+           - Add alternative for jdb
+           - Add alternative for jdeps
+           - Add alternative for jhat
+           - Add alternative for jinfo
+           - Add alternative for jjs
+           - Add alternative for jmap
+           - Add alternative for jps
+           - Add alternative for jrunscript
+           - Add alternative for jsadebugd
+           - Add alternative for jstack
+           - Add alternative for jstat
+           - Add alternative for jstatd
+           - Add alternative for keytool
+           - Add alternative for native2ascii
+           - Add alternative for orbd
+           - Add alternative for pack200
+           - Add alternative for policytool
+           - Add alternative for rmic
+           - Add alternative for rmid
+           - Add alternative for rmiregistry
+           - Add alternative for schemagen
+           - Add alternative for serialver
+           - Add alternative for servertool
+           - Add alternative for tnameserv
+           - Add alternative for unpack200
+           - Add alternative for wsgen
+           - Add alternative for wsimport
+           - Add alternative for xjc
+       Recipe: java::set_java_home
+         * directory[/etc/profile.d] action create (up to date)
+         * template[/etc/profile.d/jdk.sh] action create
+           - create new file /etc/profile.d/jdk.sh
+           - update content in file /etc/profile.d/jdk.sh from none to 7f8009
+           --- /etc/profile.d/jdk.sh	2017-08-22 17:34:21.223562648 +0100
+           +++ /etc/profile.d/.chef-jdk20170822-12084-1241y9k.sh	2017-08-22 17:34:21.221553086 +0100
+           @@ -1 +1,2 @@
+           +export JAVA_HOME=/usr/lib/jvm/java-1.8.0
+           - change mode from '' to '0755'
+       Recipe: task1_jboss::appserver
          * linux_user[jboss] action create
            - create user jboss
          * remote_file[/tmp/wildfly-10.1.0.Final.tar.gz] action create
@@ -86,7 +150,7 @@
            - change mode from '' to '0755'
            - change owner from '' to 'jboss'
          * bash[unpack] action run
-           - execute "bash"  "/tmp/chef-script20170822-12022-14kuu6v"
+           - execute "bash"  "/tmp/chef-script20170822-12084-1ii3j4g"
          * directory[/opt/wildfly-10.1.0.Final.tar.gz] action create
            - create new directory /opt/wildfly-10.1.0.Final.tar.gz
            - change mode from '' to '0755'
@@ -94,8 +158,8 @@
          * template[/etc/systemd/system/jboss.service] action create
            - create new file /etc/systemd/system/jboss.service
            - update content in file /etc/systemd/system/jboss.service from none to a53f1c
-           --- /etc/systemd/system/jboss.service	2017-08-22 13:57:50.872542102 +0100
-           +++ /etc/systemd/system/.chef-jboss20170822-12022-e0c6x5.service	2017-08-22 13:57:50.872542102 +0100
+           --- /etc/systemd/system/jboss.service	2017-08-22 17:35:21.787547256 +0100
+           +++ /etc/systemd/system/.chef-jboss20170822-12084-ik6l5z.service	2017-08-22 17:35:21.782530511 +0100
            @@ -1 +1,9 @@
            +[Unit]
            +Description=Wildfly
@@ -107,28 +171,34 @@
            +WantedBy=multi-user.target
            - change mode from '' to '0777'
            - change owner from '' to 'jboss'
-         * template[/opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war] action create(erubis):3: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):9: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):10: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):11: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):19: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):20: warning: encountered \r in middle of line, treated as a mere space
-       (erubis):21: warning: encountered \r in middle of line, treated as a mere space
-       
-           - create new file /opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war
-           - update content in file /opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war from none to c80cd5
-           (new content is binary, diff output suppressed)
-           - change mode from '' to '0755'
-           - change owner from '' to 'jboss'
          * service[jboss] action enable
            - enable service service[jboss]
          * service[jboss] action start
            - start service service[jboss]
+         * execute[wait for jboss] action run
+           - execute sleep 1m
+         * yum_package[unzip] action install
+           - install version 6.0-16.el7 of package unzip
+         * yum_package[net-tools] action install
+           - install version 2.0-0.17.20131004git.el7 of package net-tools
+       Recipe: task1_jboss::deploy
+         * remote_file[/tmp/HelloWorldWebApp.zip] action create
+           - create new file /tmp/HelloWorldWebApp.zip
+           - update content in file /tmp/HelloWorldWebApp.zip from none to 24fe18
+           (new content is binary, diff output suppressed)
+           - change mode from '' to '0755'
+           - change owner from '' to 'jboss'
+         * bash[unpack] action run
+           - execute "bash"  "/tmp/chef-script20170822-12084-g9go3c"
+         * service[jboss] action restart
+           - restart service service[jboss]
+         * execute[wait for jboss] action run
+           - execute sleep 1m
        
        Running handlers:
        Running handlers complete
-       Chef Client finished, 9/9 resources updated in 32 minutes 14 seconds
-       Finished converging <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (32m43.40s).
+       Chef Client finished, 20/22 resources updated in 03 minutes 51 seconds
+       Finished converging <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (4m12.61s).
 -----> Setting up <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
        Finished setting up <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m0.00s).
 -----> Verifying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
@@ -136,24 +206,29 @@
 
 Profile: tests from test/smoke/default
 Version: (not specified)
-Target:  ssh://vagrant@127.0.0.1:2200
+Target:  ssh://vagrant@127.0.0.1:2222
 
 
-  System Package
-[38;5;41m     ✔  java-1.8.0-openjdk-devel should be installed[0m
   Service jboss
 [38;5;41m     ✔  should be enabled[0m
 [38;5;41m     ✔  should be installed[0m
 [38;5;41m     ✔  should be running[0m
-  User jboss
-[38;5;41m     ✔  should exist[0m
+  Port 8080
+[38;5;41m     ✔  should be listening[0m
+  http GET
+[38;5;41m     ✔  on http://192.168.56.90:8080/ status should eq 200[0m
+  http GET
+[38;5;41m     ✔  on http://192.168.56.90:8080/helloworld/hi.jsp body should match /Hello, World/[0m
+  System Package
+[38;5;41m     ✔  java-1.8.0-openjdk should be installed[0m
+[38;5;41m     ✔  java-1.8.0-openjdk version should eq "1.8.0.141-1.b16.el7_3"[0m
 
-Test Summary: [38;5;41m5 successful[0m, [38;5;9m0 failures[0m, [38;5;247m0 skipped[0m
-       Finished verifying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m5.28s).
+Test Summary: [38;5;41m8 successful[0m, [38;5;9m0 failures[0m, [38;5;247m0 skipped[0m
+       Finished verifying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m3.15s).
 -----> Destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox>...
        ==> default: Forcing shutdown of VM...
        ==> default: Destroying VM and associated drives...
        Vagrant instance <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> destroyed.
-       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m5.37s).
-       Finished testing <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (33m52.84s).
------> Kitchen is finished. (33m54.08s)
+       Finished destroying <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (0m3.51s).
+       Finished testing <appserver--home-student-cm-ansible-day-1-sbeliakou-centos-73-x86-64-minimalbox> (5m15.65s).
+-----> Kitchen is finished. (5m16.89s)

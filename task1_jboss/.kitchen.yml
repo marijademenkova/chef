@@ -25,8 +25,13 @@ platforms:
 suites:
   - name: appserver
     run_list:
+      - recipe[java::default]
       - recipe[task1_jboss::appserver]
+      - recipe[task1_jboss::deploy]
+
     verifier:
       inspec_tests:
         - test/smoke/default
     attributes:
+      java: 
+        jdk_version: "8"

@@ -1,12 +1,8 @@
-package 'java-1.8.0-openjdk-devel'
-
-
 user 'jboss' do
   home '/home/jboss'
   shell '/bin/bash'
   password 'jboss'
 end
-
 
 remote_file '/tmp/wildfly-10.1.0.Final.tar.gz' do 
   source 'http://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.tar.gz'
@@ -34,13 +30,13 @@ template '/etc/systemd/system/jboss.service' do
   action [:create]
 end
 
-template '/opt/wildfly-10.1.0.Final/standalone/deployments/mnt-lab.war' do
-  source 'mnt-lab.war'
-  owner 'jboss'
-  mode '0755'
-  action [:create]
-end
-
 service 'jboss' do
   action [:enable, :start]
 end
+
+execute 'wait for jboss' do  
+  command 'sleep 1m'
+end
+
+package 'unzip'
+package 'net-tools'
